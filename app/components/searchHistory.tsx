@@ -1,36 +1,45 @@
-import WeatherRecord from "./weatherRecord.tsx";
-import { HistoriesContext } from "../contexts/historiesContext.ts";
+import Image from "next/image";
+import Button from "./button.tsx";
+import { WeatherData } from "../models/weather.ts";
+import { HistoryDispatchContext } from "../contexts/historiesContext.ts";
 import { useContext } from "react";
-import { formatDate } from "../utilities/formatter.ts";
+import { WeatherContext } from "../contexts/weatherContext.ts";
 
-export default function SearchHistory() {
-  const history = useContext(HistoriesContext);
+interface weatherRecordProps {
+  index: number;
+  city: string;
+  country: string;
+  systemDate: string;
+  queryDate: string;
+  data: WeatherData;
+}
+
+export default function SearchHistory(props: weatherRecordProps) {
+  const dispatch = useContext(HistoryDispatchContext);
+  const getHistory = useContext(WeatherContext);
   return (
-    <div className="search-history-container">
-      <div className="search-history-box">
-        <h2>Search History</h2>
-        <div className="record-container">
-          {history.length > 0 &&
-            history
-              .sort((a, b) => {
-                return (
-                  Date.parse(b.queryDate.toString()) -
-                  Date.parse(a.queryDate.toString())
-                );
-              })
-              .map((data, index) => (
-                <WeatherRecord
-                  data={data}
-                  key={index}
-                  index={index}
-                  city={data.city}
-                  country={data.country}
-                  systemDate={formatDate(data.systemDate)}
-                  queryDate={formatDate(data.queryDate)}
-
-                />
-              ))}
-        </div>
+    <div key={props.index} className="record-box">
+      <div className="record-city">
+        {props.city},{props.country}
+      </div>
+      <div className="record-date">{props.queryDate}</div>
+      <div className="history-button-group">
+        <Button
+          className="history-button"
+          onClick={() => getHistory(props.data)}
+          imagePath="/search-gray.svg"
+          iconClassName="history-icon"
+          alt="Search"
+        />
+        <Button
+          className="history-button"
+          onClick={() =>
+            dispatch({ type: "delete", indexToRemove: props.index })
+          }
+          imagePath="/delete-gray.svg"
+          iconClassName="history-icon"
+          alt="Delete"
+        />
       </div>
     </div>
   );

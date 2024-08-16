@@ -1,5 +1,5 @@
 import { WeatherData } from "../models/weather.ts";
-import SearchHistory from "./searchHistory.tsx";
+import SearchHistoryList from "./searchHistoryList.tsx";
 import Image from "next/image";
 import { formatDate, formatTemperature } from "../utilities/formatter.ts";
 import ThemeToggleBox from "./themeToggleBox.tsx";
@@ -78,7 +78,7 @@ export default function WeatherBox(props: weatherBoxProps) {
             </div>
           </div>
         </div>
-        <SearchHistory />
+        <SearchHistoryList />
       </div>
     </div>
   );
