@@ -1,18 +1,18 @@
 import { WeatherData } from "../models/weather.ts";
 
-export interface addHistoryAction {
+export interface AddHistoryAction {
   type: "add";
   history: WeatherData;
 }
 
-export interface deleteHistoryAction {
+export interface DeleteHistoryAction {
   type: "delete";
   indexToRemove: number;
 }
 
 export default function historyReducer(
   histories: Array<WeatherData>,
-  action: addHistoryAction | deleteHistoryAction
+  action: AddHistoryAction | DeleteHistoryAction
 ) {
   switch (action.type) {
     case "add": {

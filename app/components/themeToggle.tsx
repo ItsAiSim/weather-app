@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ThemeToggleBox() {
+export default function ThemeToggle() {
   const [ darkTheme, toggleTheme ] = useState<boolean>(false);
 
   function switchTheme() {

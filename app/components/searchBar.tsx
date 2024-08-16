@@ -1,14 +1,13 @@
 import { MouseEventHandler } from "react";
-import Image from "next/image";
 import Button from "./button.tsx";
 
-interface searchBarProps {
+interface SearchBarProps {
   onSearch: MouseEventHandler<HTMLButtonElement>;
   input: string;
   onChange: Function;
 }
 
-export default function SearchBar(props: searchBarProps) {
+export default function SearchBar(props: SearchBarProps) {
   return (
     <div className="search-bar-container">
       <div className="relative search-box-container">

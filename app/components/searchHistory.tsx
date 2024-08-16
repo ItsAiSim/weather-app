@@ -5,7 +5,7 @@ import { HistoryDispatchContext } from "../contexts/historiesContext.ts";
 import { useContext } from "react";
 import { WeatherContext } from "../contexts/weatherContext.ts";
 
-interface weatherRecordProps {
+interface SearchHistoryProps {
   index: number;
   city: string;
   country: string;
@@ -14,7 +14,7 @@ interface weatherRecordProps {
   data: WeatherData;
 }
 
-export default function SearchHistory(props: weatherRecordProps) {
+export default function SearchHistory(props: SearchHistoryProps) {
   const dispatch = useContext(HistoryDispatchContext);
   const getHistory = useContext(WeatherContext);
   return (
