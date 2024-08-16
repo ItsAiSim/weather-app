@@ -1,3 +1,6 @@
+# Weather Application
+An application that allows user to retrieve weather information of a city
+
 ## Prerequisite
 - NodeJS cli
 - NPM
@@ -15,7 +18,7 @@ Additionally, users can customize their experience by switching between differen
 
 ## Folder structure:
 ### /app
-- contains the core source code of this project
+- contains the source code of this project
 #### /app/api
 - contains files responsible for API calls
 #### /app/components
