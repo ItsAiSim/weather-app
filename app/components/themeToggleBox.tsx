@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ToggleBox() {
+export default function ThemeToggleBox() {
   const [ darkTheme, toggleTheme ] = useState<boolean>(false);
 
   function switchTheme() {
@@ -9,6 +9,7 @@ export default function ToggleBox() {
 
     toggleTheme(prevTheme => !prevTheme);
   }
+
   return (
     <div className="toggle-box">
       <span className="toggle-box-text">Light</span>

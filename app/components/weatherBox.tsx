@@ -2,7 +2,7 @@ import { WeatherData } from "../models/weather.ts";
 import SearchHistory from "./searchHistory.tsx";
 import Image from "next/image";
 import { formatDate, formatTemperature } from "../utilities/formatter.ts";
-import ToggleBox from "./toggleBox.tsx";
+import ThemeToggleBox from "./themeToggleBox.tsx";
 
 interface weatherBoxProps {
   weather: WeatherData | undefined;
@@ -39,7 +39,7 @@ export default function WeatherBox(props: weatherBoxProps) {
 
   return (
     <div className="weather-box-container">
-      <ToggleBox />
+      <ThemeToggleBox />
       <div className="weather-box">
         <div className="weather-icon">{weatherImage}</div>
         <div className="main-weather-info-group">
