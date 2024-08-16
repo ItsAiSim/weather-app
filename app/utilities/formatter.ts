@@ -1,3 +1,4 @@
+// Convert Date object to dd-mm-yyyy hh:mm am format
 export function formatDate(date: Date): string {
   if (!date) {
     return "-";
@@ -14,6 +15,7 @@ export function formatDate(date: Date): string {
   return `${d}-${m}-${y} ${hours}:${minutes}${am}`;
 }
 
+// Convert temperature from Kelvin to Celcius
 export function formatTemperature(temperature: number): string {
   return (temperature - 273.15).toFixed(0);
 }
