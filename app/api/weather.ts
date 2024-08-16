@@ -58,30 +58,37 @@ interface WeatherSearch {
 export async function getWeather(
   city: string
 ): Promise<WeatherData | NotFoundError> {
-  const cities = await axios.get<Array<CitySearch>>(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=e667961b7fe657220d76d5cea0919796`
-  );
-  const cityData = cities.data[0];
-  if (!cityData) {
+  try {
+    const cities = await axios.get<Array<CitySearch>>(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=e667961b7fe657220d76d5cea0919796`
+    );
+    const cityData = cities.data[0];
+    if (!cityData) {
+      return {
+        status: 404,
+        message: "Country/City Not Found!",
+      };
+    }
+    const weather = await axios.get<WeatherSearch>(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${cityData.lat}&lon=${cityData.lon}&appid=e667961b7fe657220d76d5cea0919796`
+    );
+    const weatherData = weather.data;
+    return {
+      city: cityData.name,
+      country: cityData.country,
+      weather: weatherData.weather[0].main,
+      description: weatherData.weather[0].description,
+      currTemp: weatherData.main.temp,
+      maxTemp: weatherData.main.temp_max,
+      minTemp: weatherData.main.temp_min,
+      humidity: weatherData.main.humidity,
+      systemDate: new Date(weatherData.dt * 1000),
+      queryDate: new Date(),
+    };
+  } catch(e) {
     return {
       status: 404,
       message: "Country/City Not Found!",
     };
   }
-  const weather = await axios.get<WeatherSearch>(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${cityData.lat}&lon=${cityData.lon}&appid=e667961b7fe657220d76d5cea0919796`
-  );
-  const weatherData = weather.data;
-  return {
-    city: cityData.name,
-    country: cityData.country,
-    weather: weatherData.weather[0].main,
-    description: weatherData.weather[0].description,
-    currTemp: weatherData.main.temp,
-    maxTemp: weatherData.main.temp_max,
-    minTemp: weatherData.main.temp_min,
-    humidity: weatherData.main.humidity,
-    systemDate: new Date(weatherData.dt * 1000),
-    queryDate: new Date(),
-  };
 }
