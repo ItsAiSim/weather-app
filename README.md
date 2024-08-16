@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Prerequisite
+- NodeJS cli
+- NPM
 
-## Getting Started
+## How to run this project:
+1. ```npm install``` to download the required dependencies.
+2. ```npm run dev``` to start the project.
 
-First, run the development server:
+## About this project:
+This application allows users to retrieve weather information for any city by searching for its name.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The search results are saved in a history list, which users can view and manage. Users have the option to delete any historical records from this list.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Additionally, users can customize their experience by switching between different themes using a toggle feature.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Folder structure:
+### /app
+- contains the core source code of this project
+#### /app/api
+- contains files responsible for API calls
+#### /app/components
+- contains all React components used to build the project.
+#### /app/contexts
+- includes context files for managing and passing data across multiple component levels
+#### /app/models
+- contains TypeScript interfaces for defining types.
+#### /app/reducers
+- includes reducer functions used throughout the project.
+#### /app/utilities
+- contains utility functions and code shared across multiple components
+### /public
+- stores static assets such as images used in the project.
