@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Button from "./button.tsx";
 import { WeatherData } from "../models/weather.ts";
 import { HistoryDispatchContext } from "../contexts/historiesContext.ts";

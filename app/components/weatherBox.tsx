@@ -4,11 +4,11 @@ import Image from "next/image";
 import { formatDate, formatTemperature } from "../utilities/formatter.ts";
 import ThemeToggle from "./themeToggle.tsx";
 
-interface weatherBoxProps {
+interface WeatherBoxProps {
   weather: WeatherData | undefined;
 }
 
-export default function WeatherBox(props: weatherBoxProps) {
+export default function WeatherBox(props: WeatherBoxProps) {
   let weatherImage = <></>;
   if (props.weather) {
     if (
