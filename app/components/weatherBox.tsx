@@ -44,7 +44,7 @@ export default function WeatherBox(props: weatherBoxProps) {
         <div className="weather-icon">{weatherImage}</div>
         <div className="main-weather-info-group">
           <div className="today-weather-group">
-            <h1 className="header">Today's Weather</h1>
+            <h1 className="header">{"Today's Weather"}</h1>
             <div className="curr-temperature">
               {props.weather ? formatTemperature(props.weather.currTemp) : "-"}
               &deg;

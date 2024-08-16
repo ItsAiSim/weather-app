@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "./button.tsx";
 import { WeatherData } from "../models/weather.ts";
 import { HistoryDispatchContext } from "../contexts/historiesContext.ts";
 import { useContext } from "react";
@@ -23,32 +24,22 @@ export default function WeatherRecord(props: weatherRecordProps) {
       </div>
       <div className="record-date">{props.queryDate}</div>
       <div className="history-button-group">
-        <button
+        <Button
           className="history-button"
           onClick={() => getHistory(props.data)}
-        >
-          <Image
-            src="/search-gray.svg"
-            width={560}
-            height={560}
-            alt="Search"
-            className="history-icon"
-          />
-        </button>
-        <button
+          imagePath="/search-gray.svg"
+          iconClassName="history-icon"
+          alt="Search"
+        />
+        <Button
           className="history-button"
           onClick={() =>
             dispatch({ type: "delete", indexToRemove: props.index })
           }
-        >
-          <Image
-            src="/delete-gray.svg"
-            width={400}
-            height={400}
-            alt="Delete"
-            className="history-icon"
-          />
-        </button>
+          imagePath="/delete-gray.svg"
+          iconClassName="history-icon"
+          alt="Delete"
+        />
       </div>
     </div>
   );

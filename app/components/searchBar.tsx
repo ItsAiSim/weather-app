@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import Image from "next/image";
+import Button from "./button.tsx";
 
 interface searchBarProps {
   onSearch: MouseEventHandler<HTMLButtonElement>;
@@ -23,15 +24,13 @@ export default function SearchBar(props: searchBarProps) {
         />
         <label className="search-label">Country</label>
       </div>
-      <button className="search-button" onClick={props.onSearch}>
-        <Image
-          src="/search.svg"
-          width={560}
-          height={620}
-          alt="Search"
-          className="search-icon"
-        />
-      </button>
+      <Button
+        className="search-button"
+        onClick={props.onSearch}
+        imagePath="/search.svg"
+        iconClassName="search-icon"
+        alt="Search"
+      />
     </div>
   );
 }
